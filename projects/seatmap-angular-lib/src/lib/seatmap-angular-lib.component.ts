@@ -51,8 +51,10 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
         this.onSeatUnselected.emit(data)
       }
     }
-    console.log(document.getElementById(this.rootId))
-    ReactDOM.render(React.createElement(MyReactComponent, reactProps ), document.getElementById(this.rootId));
+    const root_elem = document.getElementById(this.rootId);
+    if (root_elem) {
+      ReactDOM.render(React.createElement(MyReactComponent, reactProps ), root_elem);
+    }
   }
 }
 

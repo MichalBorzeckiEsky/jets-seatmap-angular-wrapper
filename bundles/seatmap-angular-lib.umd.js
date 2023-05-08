@@ -81,8 +81,10 @@
                     _this.onSeatUnselected.emit(data);
                 }
             };
-            console.log(document.getElementById(this.rootId));
-            ReactDOM__namespace.render(React__namespace.createElement(MyReactComponent, reactProps), document.getElementById(this.rootId));
+            var root_elem = document.getElementById(this.rootId);
+            if (root_elem) {
+                ReactDOM__namespace.render(React__namespace.createElement(MyReactComponent, reactProps), root_elem);
+            }
         };
         return SeatmapAngularLibComponent;
     }());

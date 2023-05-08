@@ -57,8 +57,10 @@ class SeatmapAngularLibComponent {
                 this.onSeatUnselected.emit(data);
             }
         };
-        console.log(document.getElementById(this.rootId));
-        ReactDOM.render(React.createElement(MyReactComponent, reactProps), document.getElementById(this.rootId));
+        const root_elem = document.getElementById(this.rootId);
+        if (root_elem) {
+            ReactDOM.render(React.createElement(MyReactComponent, reactProps), root_elem);
+        }
     }
 }
 SeatmapAngularLibComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0, type: SeatmapAngularLibComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
