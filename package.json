@@ -1,0 +1,74 @@
+{
+  "name": "seatmap-angular-lib",
+  "version": "0.0.2",
+  "main" : "index.d.ts",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "postbuild": "cp -R dist/seatmap-angular-lib dist/seatmap-angular-lib2 && rm dist/seatmap-angular-lib2/package.json && rm dist/seatmap-angular-lib2/README.md && cp -R dist/seatmap-angular-lib2/* ./ ",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IhorShalimov/seatmap-angular-lib.git"
+  },
+  "dependencies": {
+    "@angular/animations": "^15.2.0",
+    "@angular/common": "^15.2.0",
+    "@angular/compiler": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/platform-browser": "^15.2.0",
+    "@angular/platform-browser-dynamic": "^15.2.0",
+    "@angular/router": "^15.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0",
+    "react": "^18.0.2",
+    "react-dom": "^18.0.2",
+    "jets-seatmap-react-lib": "github:Kwiket/jets-seatmap-react-lib#for_angular_wrapper"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^15.2.8",
+    "@angular/cli": "~15.2.6",
+    "@angular/compiler-cli": "^15.2.0",
+    "@types/jasmine": "~4.3.0",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.9",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^15.2.2",
+    "typescript": "~4.9.4"
+  },
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "sideEffects": false,
+  "module": "fesm2015/seatmap-angular-lib.mjs",
+  "es2020": "fesm2020/seatmap-angular-lib.mjs",
+  "esm2020": "esm2020/seatmap-angular-lib.mjs",
+  "fesm2020": "fesm2020/seatmap-angular-lib.mjs",
+  "fesm2015": "fesm2015/seatmap-angular-lib.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/seatmap-angular-lib.mjs",
+      "es2020": "./fesm2020/seatmap-angular-lib.mjs",
+      "es2015": "./fesm2015/seatmap-angular-lib.mjs",
+      "node": "./fesm2015/seatmap-angular-lib.mjs",
+      "default": "./fesm2020/seatmap-angular-lib.mjs"
+    }
+  }
+}
