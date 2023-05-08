@@ -14,5 +14,5 @@ export declare class SeatmapAngularLibComponent implements OnChanges, AfterViewI
     ngOnDestroy(): void;
     private render;
     static ɵfac: i0.ɵɵFactoryDeclaration<SeatmapAngularLibComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<SeatmapAngularLibComponent, "seatmap", never, { "flight": "flight"; "config": "config"; "availability": "availability"; "passengers": "passengers"; }, { "onSeatMapInited": "onSeatMapInited"; "onSeatSelected": "onSeatSelected"; "onSeatUnselected": "onSeatUnselected"; }, never, never, false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<SeatmapAngularLibComponent, "seatmap", never, { "flight": "flight"; "config": "config"; "availability": "availability"; "passengers": "passengers"; }, { "onSeatMapInited": "onSeatMapInited"; "onSeatSelected": "onSeatSelected"; "onSeatUnselected": "onSeatUnselected"; }, never, never>;
 }
