@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "seatmapAngularLib": {
+    "seatmap-angular-lib": {
       "projectType": "library",
       "root": "projects/seatmap-angular-lib",
       "sourceRoot": "projects/seatmap-angular-lib/src",
@@ -30,13 +27,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/seatmap-angular-lib/src/test.ts",
             "tsConfig": "projects/seatmap-angular-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/seatmap-angular-lib/karma.conf.js"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
     }
-  },
-  "defaultProject": "seatmapAngularLib"
+  }
 }
