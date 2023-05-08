@@ -1,6 +1,6 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('react'), require('react-dom/client'), require('react/jsx-runtime'), require('jets-seatmap-react-lib')) :
-    typeof define === 'function' && define.amd ? define('seatmap-angular-lib', ['exports', '@angular/core', 'react', 'react-dom/client', 'react/jsx-runtime', 'jets-seatmap-react-lib'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('react'), require('react-dom'), require('react/jsx-runtime'), require('jets-seatmap-react-lib')) :
+    typeof define === 'function' && define.amd ? define('seatmap-angular-lib', ['exports', '@angular/core', 'react', 'react-dom', 'react/jsx-runtime', 'jets-seatmap-react-lib'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["seatmap-angular-lib"] = {}, global.ng.core, global.React, global.ReactDOM, global.jsxRuntime, global.jetsSeatmapReactLib));
 })(this, (function (exports, i0, React, ReactDOM, jsxRuntime, jetsSeatmapReactLib) { 'use strict';
 
@@ -41,7 +41,7 @@
             }], ctorParameters: function () { return []; } });
 
     var MyReactComponent = function (props) {
-        return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(jetsSeatmapReactLib.JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, currentDeckIndex: props.currentDeckIndex, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected, onTooltipRequested: props.onTooltipRequested, onLayoutUpdated: props.onLayoutUpdated }, void 0) }, void 0));
+        return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(jetsSeatmapReactLib.JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected }, void 0) }, void 0));
     };
 
     var SeatmapAngularLibComponent = /** @class */ (function () {
@@ -50,12 +50,9 @@
             this.config = {};
             this.availability = [];
             this.passengers = [];
-            this.currentDeckIndex = 0;
             this.onSeatMapInited = new i0.EventEmitter();
             this.onSeatSelected = new i0.EventEmitter();
             this.onSeatUnselected = new i0.EventEmitter();
-            this.onTooltipRequested = new i0.EventEmitter();
-            this.onLayoutUpdated = new i0.EventEmitter();
             this.rootId = 'rootId';
         }
         SeatmapAngularLibComponent.prototype.ngOnChanges = function (changes) {
@@ -64,13 +61,14 @@
         SeatmapAngularLibComponent.prototype.ngAfterViewInit = function () {
             this.render();
         };
-        SeatmapAngularLibComponent.prototype.ngOnDestroy = function () { };
+        SeatmapAngularLibComponent.prototype.ngOnDestroy = function () {
+        };
         SeatmapAngularLibComponent.prototype.render = function () {
             var _this = this;
+            // ReactDOM.render(React.createElement(MyReactComponent ), document.getElementById(this.rootId));
             var reactProps = {
                 flight: this.flight,
                 config: this.config,
-                currentDeckIndex: this.currentDeckIndex,
                 availability: this.availability,
                 passengers: this.passengers,
                 onSeatMapInited: function (data) {
@@ -81,29 +79,21 @@
                 },
                 onSeatUnselected: function (data) {
                     _this.onSeatUnselected.emit(data);
-                },
-                onTooltipRequested: function (data) {
-                    _this.onTooltipRequested.emit(data);
-                },
-                onLayoutUpdated: function (data) {
-                    _this.onLayoutUpdated.emit(data);
-                },
+                }
             };
-            var root_elem = document.getElementById(this.rootId);
-            if (root_elem) {
-                var rootReact = ReactDOM__namespace.createRoot(root_elem);
-                rootReact.render(React__namespace.createElement(MyReactComponent, reactProps));
-            }
+            console.log(document.getElementById(this.rootId));
+            ReactDOM__namespace.render(React__namespace.createElement(MyReactComponent, reactProps), document.getElementById(this.rootId));
         };
         return SeatmapAngularLibComponent;
     }());
     SeatmapAngularLibComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0__namespace, type: SeatmapAngularLibComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    SeatmapAngularLibComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers", currentDeckIndex: "currentDeckIndex" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected", onTooltipRequested: "onTooltipRequested", onLayoutUpdated: "onLayoutUpdated" }, usesOnChanges: true, ngImport: i0__namespace, template: '<div [id]="rootId"></div>', isInline: true });
+    SeatmapAngularLibComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected" }, usesOnChanges: true, ngImport: i0__namespace, template: '<div [id]="rootId"></div>', isInline: true });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0__namespace, type: SeatmapAngularLibComponent, decorators: [{
                 type: i0.Component,
                 args: [{
                         selector: 'seatmap',
                         template: '<div [id]="rootId"></div>',
+                        // styleUrls: ['./app.component.css']
                     }]
             }], propDecorators: { flight: [{
                     type: i0.Input
@@ -113,17 +103,11 @@
                     type: i0.Input
                 }], passengers: [{
                     type: i0.Input
-                }], currentDeckIndex: [{
-                    type: i0.Input
                 }], onSeatMapInited: [{
                     type: i0.Output
                 }], onSeatSelected: [{
                     type: i0.Output
                 }], onSeatUnselected: [{
-                    type: i0.Output
-                }], onTooltipRequested: [{
-                    type: i0.Output
-                }], onLayoutUpdated: [{
                     type: i0.Output
                 }] } });
 

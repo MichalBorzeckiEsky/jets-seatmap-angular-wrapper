@@ -1,7 +1,6 @@
 {
-  "name": "seatmap-angular-lib",
-  "version": "0.0.2",
-  "main": "index.d.ts",
+  "name": "jets-seatmap-angular12",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,64 +10,51 @@
     "test": "ng test"
   },
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IhorShalimov/seatmap-angular-lib.git"
-  },
   "dependencies": {
-    "@angular/animations": "^12.2.17",
-    "@angular/common": "^12.2.17",
-    "@angular/compiler": "^12.2.17",
-    "@angular/core": "^12.2.17",
-    "@angular/forms": "^12.2.17",
-    "@angular/platform-browser": "^12.2.17",
-    "@angular/platform-browser-dynamic": "^12.2.17",
-    "@angular/router": "^12.2.17",
-    "rxjs": "~7.8.0",
+    "@angular/animations": "~12.2.0",
+    "@angular/common": "~12.2.0",
+    "@angular/compiler": "~12.2.0",
+    "@angular/core": "~12.2.0",
+    "@angular/forms": "~12.2.0",
+    "@angular/platform-browser": "~12.2.0",
+    "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/router": "~12.2.0",
+    "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
+
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
     "jets-seatmap-react-lib": "github:Kwiket/jets-seatmap-react-lib#for_angular_wrapper"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^12.2.17",
+    "@angular-devkit/build-angular": "~12.2.18",
     "@angular/cli": "~12.2.17",
-    "@angular/compiler-cli": "^12.2.17",
-    "@types/jasmine": "~4.3.0",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.9",
-    "jasmine-core": "~4.5.0",
-    "karma": "~6.4.0",
+    "@angular/compiler-cli": "~12.2.0",
+    "@types/jasmine": "~3.8.0",
+    "@types/node": "^12.11.1",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "ng-packagr": "^15.2.2",
-    "typescript": "~4.2.3"
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^12.1.1",
+    "typescript": "~4.3.5",
+
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.9"
   },
-  "peerDependencies": {
-    "@angular/common": "^12.2.17",
-    "@angular/core": "^12.2.17"
-  },
+
+  "main": "bundles/seatmap-angular-lib.umd.js",
+  "module": "fesm2015/seatmap-angular-lib.js",
+  "es2015": "fesm2015/seatmap-angular-lib.js",
+  "esm2015": "esm2015/seatmap-angular-lib.js",
+  "fesm2015": "fesm2015/seatmap-angular-lib.js",
+  "typings": "seatmap-angular-lib.d.ts",
   "sideEffects": false,
-  "module": "fesm2015/seatmap-angular-lib.mjs",
-  "es2020": "fesm2020/seatmap-angular-lib.mjs",
-  "esm2020": "esm2020/seatmap-angular-lib.mjs",
-  "fesm2020": "fesm2020/seatmap-angular-lib.mjs",
-  "fesm2015": "fesm2015/seatmap-angular-lib.mjs",
-  "typings": "index.d.ts",
-  "exports": {
-    "./package.json": {
-      "default": "./package.json"
-    },
-    ".": {
-      "types": "./index.d.ts",
-      "esm2020": "./esm2020/seatmap-angular-lib.mjs",
-      "es2020": "./fesm2020/seatmap-angular-lib.mjs",
-      "es2015": "./fesm2015/seatmap-angular-lib.mjs",
-      "node": "./fesm2015/seatmap-angular-lib.mjs",
-      "default": "./fesm2020/seatmap-angular-lib.mjs"
-    }
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
   }
 }
