@@ -26,7 +26,7 @@
 
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
-    "jets-seatmap-react-lib": "github:Kwiket/jets-seatmap-react-lib#for_angular_wrapper"
+    "jets-seatmap-react-lib": "github:Kwiket/jets-seatmap-react-lib-pub#version-2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.18",
