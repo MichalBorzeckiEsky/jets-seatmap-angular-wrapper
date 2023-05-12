@@ -53,3 +53,4 @@ export class AppModule { }
         (onSeatUnselected)="onSeatUnselect"
     ></seatmap>
 ```
+For better undertanding how it works read [React lib doc](https://github.com/Kwiket/jets-seatmap-react-lib-pub) and [Integration instruction](https://github.com/Kwiket/jets-seatmap-react-lib-pub/blob/version-2/SEATMAP-INTEGRATION.md)
