@@ -15,6 +15,7 @@ const MyReactComponent = (props : any) =>{
                 onSeatMapInited={props.onSeatMapInited}
                 onSeatSelected={props.onSeatSelected}
                 onSeatUnselected={props.onSeatUnselected}
+                onTooltipRequested={props.onTooltipRequested}
             />
         </div>
         
