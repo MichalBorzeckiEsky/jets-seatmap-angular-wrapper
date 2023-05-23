@@ -19,6 +19,7 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
   @Output() onSeatMapInited = new EventEmitter<any>();
   @Output() onSeatSelected = new EventEmitter<any>();
   @Output() onSeatUnselected = new EventEmitter<any>();
+  @Output() onTooltipRequested = new EventEmitter<any>();
 
   public rootId = 'rootId'
 
@@ -49,6 +50,9 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
       },
       onSeatUnselected : (data : any) => {
         this.onSeatUnselected.emit(data)
+      },
+      onTooltipRequested: (data : any) => {
+        this.onTooltipRequested.emit(data)
       }
     }
     const root_elem = document.getElementById(this.rootId);

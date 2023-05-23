@@ -44,13 +44,14 @@ export class AppModule { }
 ## Usage 
 ```html
 <seatmap
-  [config]="config"
-  [flight]="flight"
-  [availability]="availability"
-  [passengers]="passengers"
-  (onSeatMapInited)="onSeatInit($event)"
-  (onSeatSelected)="onSeatSelect($event)"
-  (onSeatUnselected)="onSeatUnselect($event)"
+    [config]="config"
+    [flight]="flight"
+    [availability]="availability"
+    [passengers]="passengers"
+    (onSeatMapInited)="onSeatInit($event)"
+    (onSeatSelected)="onSeatSelect($event)"
+    (onSeatUnselected)="onSeatUnselect($event)"
+    (onTooltipRequested)="onTooltipRequested($event)"    
 ></seatmap>
 ```
 For better undertanding how it works read [React lib doc](https://github.com/Kwiket/jets-seatmap-react-lib-pub) and [Integration instruction](https://github.com/Kwiket/jets-seatmap-react-lib-pub/blob/version-2/SEATMAP-INTEGRATION.md)
