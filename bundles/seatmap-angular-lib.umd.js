@@ -41,7 +41,7 @@
             }], ctorParameters: function () { return []; } });
 
     var MyReactComponent = function (props) {
-        return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(jetsSeatmapReactLib.JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected, onTooltipRequested: props.onTooltipRequested }, void 0) }, void 0));
+        return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(jetsSeatmapReactLib.JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected, onTooltipRequested: props.onTooltipRequested, onLayoutUpdated: props.onLayoutUpdated }, void 0) }, void 0));
     };
 
     var SeatmapAngularLibComponent = /** @class */ (function () {
@@ -54,6 +54,7 @@
             this.onSeatSelected = new i0.EventEmitter();
             this.onSeatUnselected = new i0.EventEmitter();
             this.onTooltipRequested = new i0.EventEmitter();
+            this.onLayoutUpdated = new i0.EventEmitter();
             this.rootId = 'rootId';
         }
         SeatmapAngularLibComponent.prototype.ngOnChanges = function (changes) {
@@ -66,7 +67,6 @@
         };
         SeatmapAngularLibComponent.prototype.render = function () {
             var _this = this;
-            // ReactDOM.render(React.createElement(MyReactComponent ), document.getElementById(this.rootId));
             var reactProps = {
                 flight: this.flight,
                 config: this.config,
@@ -83,6 +83,9 @@
                 },
                 onTooltipRequested: function (data) {
                     _this.onTooltipRequested.emit(data);
+                },
+                onLayoutUpdated: function (data) {
+                    _this.onLayoutUpdated.emit(data);
                 }
             };
             var root_elem = document.getElementById(this.rootId);
@@ -93,13 +96,12 @@
         return SeatmapAngularLibComponent;
     }());
     SeatmapAngularLibComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0__namespace, type: SeatmapAngularLibComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    SeatmapAngularLibComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected", onTooltipRequested: "onTooltipRequested" }, usesOnChanges: true, ngImport: i0__namespace, template: '<div [id]="rootId"></div>', isInline: true });
+    SeatmapAngularLibComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected", onTooltipRequested: "onTooltipRequested", onLayoutUpdated: "onLayoutUpdated" }, usesOnChanges: true, ngImport: i0__namespace, template: '<div [id]="rootId"></div>', isInline: true });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0__namespace, type: SeatmapAngularLibComponent, decorators: [{
                 type: i0.Component,
                 args: [{
                         selector: 'seatmap',
                         template: '<div [id]="rootId"></div>',
-                        // styleUrls: ['./app.component.css']
                     }]
             }], propDecorators: { flight: [{
                     type: i0.Input
@@ -116,6 +118,8 @@
                 }], onSeatUnselected: [{
                     type: i0.Output
                 }], onTooltipRequested: [{
+                    type: i0.Output
+                }], onLayoutUpdated: [{
                     type: i0.Output
                 }] } });
 

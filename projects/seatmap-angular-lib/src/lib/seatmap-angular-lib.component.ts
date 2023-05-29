@@ -9,7 +9,6 @@ import MyReactComponent from './MyReactComponent';
 @Component({
   selector: 'seatmap',
   template: '<div [id]="rootId"></div>',
-  // styleUrls: ['./app.component.css']
 })
 export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnDestroy{
   @Input() flight = {}
@@ -20,6 +19,7 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
   @Output() onSeatSelected = new EventEmitter<any>();
   @Output() onSeatUnselected = new EventEmitter<any>();
   @Output() onTooltipRequested = new EventEmitter<any>();
+  @Output() onLayoutUpdated = new EventEmitter<any>();
 
   public rootId = 'rootId'
 
@@ -36,7 +36,6 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
   }
 
   private render(){
-    // ReactDOM.render(React.createElement(MyReactComponent ), document.getElementById(this.rootId));
     const reactProps = {
       flight : this.flight,
       config : this.config,  
@@ -53,6 +52,9 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
       },
       onTooltipRequested: (data : any) => {
         this.onTooltipRequested.emit(data)
+      },
+      onLayoutUpdated: (data : any) => {
+        this.onLayoutUpdated.emit(data)
       }
     }
     const root_elem = document.getElementById(this.rootId);

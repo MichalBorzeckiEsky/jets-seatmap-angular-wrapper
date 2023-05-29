@@ -9,11 +9,12 @@ export declare class SeatmapAngularLibComponent implements OnChanges, AfterViewI
     onSeatSelected: EventEmitter<any>;
     onSeatUnselected: EventEmitter<any>;
     onTooltipRequested: EventEmitter<any>;
+    onLayoutUpdated: EventEmitter<any>;
     rootId: string;
     ngOnChanges(changes: SimpleChanges): void;
     ngAfterViewInit(): void;
     ngOnDestroy(): void;
     private render;
     static ɵfac: i0.ɵɵFactoryDeclaration<SeatmapAngularLibComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<SeatmapAngularLibComponent, "seatmap", never, { "flight": "flight"; "config": "config"; "availability": "availability"; "passengers": "passengers"; }, { "onSeatMapInited": "onSeatMapInited"; "onSeatSelected": "onSeatSelected"; "onSeatUnselected": "onSeatUnselected"; "onTooltipRequested": "onTooltipRequested"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<SeatmapAngularLibComponent, "seatmap", never, { "flight": "flight"; "config": "config"; "availability": "availability"; "passengers": "passengers"; }, { "onSeatMapInited": "onSeatMapInited"; "onSeatSelected": "onSeatSelected"; "onSeatUnselected": "onSeatUnselected"; "onTooltipRequested": "onTooltipRequested"; "onLayoutUpdated": "onLayoutUpdated"; }, never, never>;
 }
