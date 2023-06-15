@@ -50,6 +50,7 @@ export class AppModule { }
   [flight]="flight"
   [availability]="availability"
   [passengers]="passengers"
+  [currentDeckIndex]="deckIndex"
   (onSeatMapInited)="onSeatInit($event)"
   (onSeatSelected)="onSeatSelect($event)"
   (onSeatUnselected)="onSeatUnselect($event)"

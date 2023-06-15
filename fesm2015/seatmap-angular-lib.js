@@ -18,7 +18,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.17", ngImpo
         }], ctorParameters: function () { return []; } });
 
 const MyReactComponent = (props) => {
-    return (jsx("div", { children: jsx(JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected, onTooltipRequested: props.onTooltipRequested, onLayoutUpdated: props.onLayoutUpdated }, void 0) }, void 0));
+    return (jsx("div", { children: jsx(JetsSeatMap, { flight: props.flight, config: props.config, availability: props.availability, passengers: props.passengers, currentDeckIndex: props.currentDeckIndex, onSeatMapInited: props.onSeatMapInited, onSeatSelected: props.onSeatSelected, onSeatUnselected: props.onSeatUnselected, onTooltipRequested: props.onTooltipRequested, onLayoutUpdated: props.onLayoutUpdated }, void 0) }, void 0));
 };
 
 class SeatmapAngularLibComponent {
@@ -27,6 +27,7 @@ class SeatmapAngularLibComponent {
         this.config = {};
         this.availability = [];
         this.passengers = [];
+        this.currentDeckIndex = 0;
         this.onSeatMapInited = new EventEmitter();
         this.onSeatSelected = new EventEmitter();
         this.onSeatUnselected = new EventEmitter();
@@ -40,12 +41,12 @@ class SeatmapAngularLibComponent {
     ngAfterViewInit() {
         this.render();
     }
-    ngOnDestroy() {
-    }
+    ngOnDestroy() { }
     render() {
         const reactProps = {
             flight: this.flight,
             config: this.config,
+            currentDeckIndex: this.currentDeckIndex,
             availability: this.availability,
             passengers: this.passengers,
             onSeatMapInited: (data) => {
@@ -62,7 +63,7 @@ class SeatmapAngularLibComponent {
             },
             onLayoutUpdated: (data) => {
                 this.onLayoutUpdated.emit(data);
-            }
+            },
         };
         const root_elem = document.getElementById(this.rootId);
         if (root_elem) {
@@ -71,7 +72,7 @@ class SeatmapAngularLibComponent {
     }
 }
 SeatmapAngularLibComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0, type: SeatmapAngularLibComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-SeatmapAngularLibComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected", onTooltipRequested: "onTooltipRequested", onLayoutUpdated: "onLayoutUpdated" }, usesOnChanges: true, ngImport: i0, template: '<div [id]="rootId"></div>', isInline: true });
+SeatmapAngularLibComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.2.17", type: SeatmapAngularLibComponent, selector: "seatmap", inputs: { flight: "flight", config: "config", availability: "availability", passengers: "passengers", currentDeckIndex: "currentDeckIndex" }, outputs: { onSeatMapInited: "onSeatMapInited", onSeatSelected: "onSeatSelected", onSeatUnselected: "onSeatUnselected", onTooltipRequested: "onTooltipRequested", onLayoutUpdated: "onLayoutUpdated" }, usesOnChanges: true, ngImport: i0, template: '<div [id]="rootId"></div>', isInline: true });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0, type: SeatmapAngularLibComponent, decorators: [{
             type: Component,
             args: [{
@@ -85,6 +86,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.17", ngImpo
             }], availability: [{
                 type: Input
             }], passengers: [{
+                type: Input
+            }], currentDeckIndex: [{
                 type: Input
             }], onSeatMapInited: [{
                 type: Output
