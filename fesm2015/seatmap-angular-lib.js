@@ -1,7 +1,7 @@
 import * as i0 from '@angular/core';
 import { Injectable, EventEmitter, Component, Input, Output, NgModule } from '@angular/core';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 import { jsx } from 'react/jsx-runtime';
 import { JetsSeatMap } from 'jets-seatmap-react-lib';
 
@@ -67,7 +67,8 @@ class SeatmapAngularLibComponent {
         };
         const root_elem = document.getElementById(this.rootId);
         if (root_elem) {
-            ReactDOM.render(React.createElement(MyReactComponent, reactProps), root_elem);
+            const rootReact = ReactDOM.createRoot(root_elem);
+            rootReact.render(React.createElement(MyReactComponent, reactProps));
         }
     }
 }
