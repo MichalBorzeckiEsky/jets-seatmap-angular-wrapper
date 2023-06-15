@@ -9,7 +9,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 
 import MyReactComponent from './MyReactComponent';
 
@@ -66,7 +66,8 @@ export class SeatmapAngularLibComponent implements OnChanges, AfterViewInit, OnD
     };
     const root_elem = document.getElementById(this.rootId);
     if (root_elem) {
-      ReactDOM.render(React.createElement(MyReactComponent, reactProps), root_elem);
+      const rootReact = ReactDOM.createRoot(root_elem);
+      rootReact.render(React.createElement(MyReactComponent, reactProps));
     }
   }
 }
