@@ -1,11 +1,11 @@
 {
   "name": "jets-seatmap-angular-wrapper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "postbuild": "cp -R dist/seatmap-angular-lib dist/seatmap-angular-lib2 && rm -f dist/seatmap-angular-lib2/package.json && rm -f dist/seatmap-angular-lib2/README.md && cp -R dist/seatmap-angular-lib2/* ./ ",
+    "postbuild": "cp -R dist/seatmap-angular-lib dist/seatmap-angular-lib2 && rm -f dist/seatmap-angular-lib2/package.json && rm -f dist/seatmap-angular-lib2/README.md && cp -R dist/seatmap-angular-lib2/* ./ && rm -rf dist/seatmap-angular-lib2",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

@@ -1,6 +1,6 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('react'), require('react-dom'), require('react/jsx-runtime'), require('jets-seatmap-react-lib')) :
-    typeof define === 'function' && define.amd ? define('seatmap-angular-lib', ['exports', '@angular/core', 'react', 'react-dom', 'react/jsx-runtime', 'jets-seatmap-react-lib'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('react'), require('react-dom/client'), require('react/jsx-runtime'), require('jets-seatmap-react-lib')) :
+    typeof define === 'function' && define.amd ? define('seatmap-angular-lib', ['exports', '@angular/core', 'react', 'react-dom/client', 'react/jsx-runtime', 'jets-seatmap-react-lib'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["seatmap-angular-lib"] = {}, global.ng.core, global.React, global.ReactDOM, global.jsxRuntime, global.jetsSeatmapReactLib));
 })(this, (function (exports, i0, React, ReactDOM, jsxRuntime, jetsSeatmapReactLib) { 'use strict';
 
@@ -91,7 +91,8 @@
             };
             var root_elem = document.getElementById(this.rootId);
             if (root_elem) {
-                ReactDOM__namespace.render(React__namespace.createElement(MyReactComponent, reactProps), root_elem);
+                var rootReact = ReactDOM__namespace.createRoot(root_elem);
+                rootReact.render(React__namespace.createElement(MyReactComponent, reactProps));
             }
         };
         return SeatmapAngularLibComponent;
